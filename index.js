@@ -1,7 +1,6 @@
 'use strict';
 
 var postcss = require('postcss');
-var objectAssign = require('object-assign');
 var { createPropListMatcher } = require('./src/prop-list-matcher');
 var { getUnitRegexp } = require('./src/pixel-unit-regexp');
 
@@ -26,7 +25,7 @@ var ignoreNextComment = 'px-to-viewport-ignore-next';
 var ignorePrevComment = 'px-to-viewport-ignore';
 
 module.exports = postcss.plugin('postcss-px-to-viewport', function (options) {
-  var opts = objectAssign({}, defaults, options);
+  var opts = Object.assign({}, defaults, options);
 
   checkRegExpOrArray(opts, 'exclude');
   checkRegExpOrArray(opts, 'include');
